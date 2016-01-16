@@ -1,5 +1,11 @@
 #ifndef CUSTRING_H
 
+struct grString{
+
+ char* word;
+ int length;
+};
+
 /*****************************
 * getUserString: Dynamically *
 * allocates storage for a    *
