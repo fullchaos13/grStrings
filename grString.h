@@ -1,10 +1,8 @@
 #ifndef CUSTRING_H
 
-struct grString{
-
- char* word;
- int length;
-};
+typedef unsigned int Bool;
+#define TRUE 1
+#define FALSE 0
 
 /*****************************
 * getUserString: Dynamically *
@@ -46,5 +44,17 @@ int stringToInt(char* a);
 * window.                    *
 *****************************/
 void printString(char* a);
+
+/*****************************
+* addStrings: Combines string*
+* a with string b. Parameter *
+* s is a macro, determines   *
+* whether or not there is a  *
+* space inbetween the two    *
+* strings (TRUE, False).     *
+* Returns the newly created  *
+* string.                    *
+*****************************/
+char* combineStrings(char* a, char* b, Bool isSpace);
 
 #endif // CUSTRING_H

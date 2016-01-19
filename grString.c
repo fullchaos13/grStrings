@@ -109,3 +109,50 @@ void printString(char* a){
 }
 
 
+char* combineStrings(char* a, char* b, Bool isSpace){
+
+ int totalSize = 0;
+ int counter;
+ char* newString;
+
+    if(isSpace == TRUE){
+        totalSize++;
+    }
+
+    totalSize += getStringSize(a);
+    totalSize += getStringSize(b);
+    totalSize++;
+
+    if(!malloc(totalSize)){
+        printf("Error: malloc failed.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    newString = (char*) malloc(totalSize);
+
+    for(counter = 0; counter < getStringSize(a); counter++){
+
+        *(newString + counter) = *(a + counter);
+    }
+
+    if(isSpace == TRUE){
+        *(newString + counter) = ' ';
+        counter++;
+    }
+
+    for(int i = 0; counter < totalSize; counter++, i++){
+
+        *(newString + counter) = *(b + i);
+    }
+
+    *(newString + totalSize) = '\0';
+
+    return newString;
+}
+
+
+
+
+
+
+
