@@ -55,6 +55,35 @@ void printString(char* a);
 * Returns the newly created  *
 * string.                    *
 *****************************/
-char* combineStrings(char* a, char* b, Bool isSpace);
+char* combineStrings(const char* a, const char* b, Bool isSpace);
+
+/*****************************
+* toUpper: Converts specified*
+* string to all upper case   *
+* letters ignoring anything  *
+* that isn't a lower case    *
+* character.                 *
+*****************************/
+void toUpper(char* a);
+
+/*****************************
+* toLower: Converts specified*
+* string to all lower case   *
+* letters ignoring anything  *
+* that isn't a upper case    *
+* character.                 *
+*****************************/
+void toLower(char* b);
+
+/*****************************
+* compareStrings: Compares   *
+* the alphabetical ordering  *
+* of the two strings ignoring*
+* any non letter characters. *
+* Returns -1 if a is before b*
+* +1 if a is after b, 0 if   *
+* both are the same string.  *
+*****************************/
+int compareStrings(const char* a, const char* b);
 
 #endif // CUSTRING_H

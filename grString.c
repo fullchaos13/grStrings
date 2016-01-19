@@ -109,7 +109,7 @@ void printString(char* a){
 }
 
 
-char* combineStrings(char* a, char* b, Bool isSpace){
+char* combineStrings(const char* a, const char* b, Bool isSpace){
 
  int totalSize = 0;
  int counter;
@@ -137,7 +137,7 @@ char* combineStrings(char* a, char* b, Bool isSpace){
 
     if(isSpace == TRUE){
         *(newString + counter) = ' ';
-        counter++;
+    counter++;
     }
 
     for(int i = 0; counter < totalSize; counter++, i++){
@@ -151,8 +151,54 @@ char* combineStrings(char* a, char* b, Bool isSpace){
 }
 
 
+void toUpper(char* a){
+
+    for(char *i = a; i < a + getStringSize(a); i++){
+
+        if(*i >= 'a' && *i <= 'z'){
+            *i -= 32;
+        }
+    }
+}
 
 
+void toLower(char* a){
 
+    for(char* i = a; i < a + getStringSize(a); i++){
+
+        if(*i >= 'A' && *i <= 'Z'){
+            *i += 32;
+        }
+    }
+}
+
+
+int compareStrings(const char* a, const char* b){
+
+ int mainCounter = 0;
+ char* aLower;
+ char* bLower;
+
+    if(getStringSize(a) > getStringSize(b)){
+        mainCounter = getStringSize(b);
+
+    }else if(getStringSize(a) < getStringSize(b)){
+        mainCounter = getStringSize(a);
+
+    }else{
+        mainCounter = getStringSize(a);
+    }
+
+    aLower = copyString(a);
+    bLower = copyString(b);
+
+    toLower(a);
+    toLower(b);
+
+    for(int i = 0; i < mainCounter; i++){
+
+
+    }
+}
 
 
