@@ -173,6 +173,28 @@ void toLower(char* a){
 }
 
 
+char* removeNonChars(char* a){
+
+ int removes = 0;
+ char* newString = NULL;
+
+    newString = (char*) malloc(getStringSize(a) + 1);
+
+    for(int i = 0; i <= getStringSize(a); i++){
+
+        if( ((*(a + i) >= 'a') && (*(a + i) <= 'z')) || ((*(a + i) >= 'A') && (*(a + i) <= 'Z')) || *(a + i) == '\0'){
+            *(newString + i - removes) = *(a + i);
+        }else{
+            removes++;
+        }
+    }
+
+    newString = realloc(newString, (getStringSize(a) - removes));
+
+    return newString;
+}
+
+
 int compareStrings(const char* a, const char* b){
 
  int mainCounter = 0;
@@ -180,10 +202,10 @@ int compareStrings(const char* a, const char* b){
  char* bLower;
 
     if(getStringSize(a) > getStringSize(b)){
-        mainCounter = getStringSize(b);
+        mainCounter = getStringSize(a);
 
     }else if(getStringSize(a) < getStringSize(b)){
-        mainCounter = getStringSize(a);
+        mainCounter = getStringSize(b);
 
     }else{
         mainCounter = getStringSize(a);
@@ -195,10 +217,25 @@ int compareStrings(const char* a, const char* b){
     toLower(a);
     toLower(b);
 
+    aLower = removeNonChars(aLower);
+    bLower = removeNonChars(bLower);
+
     for(int i = 0; i < mainCounter; i++){
 
+        if(*(a + i) == '\0'){
+            return -1;
 
+        }else if(*(b + i) == '\0'){
+            return 1;
+
+        }else if(*(a + i) < *(b + i)){
+            return -1;
+
+        }else if(*(a + i) > *(b + i)){
+            return 1;
+        }
     }
+    return 0;
 }
 
 

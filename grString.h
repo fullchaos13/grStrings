@@ -76,6 +76,15 @@ void toUpper(char* a);
 void toLower(char* b);
 
 /*****************************
+* removeNonChars: Removes any*
+* char that isn't a-z or A-Z.*
+* Removes the empty spaces   *
+* left by the nonchars and   *
+* resizes the string.        *
+*****************************/
+char* removeNonChars(char* a);
+
+/*****************************
 * compareStrings: Compares   *
 * the alphabetical ordering  *
 * of the two strings ignoring*
